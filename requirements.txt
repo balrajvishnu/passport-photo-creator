@@ -1,0 +1,10 @@
+langchain
+openai
+requests
+streamlit
+python-dotenv
+google-search-results
+newspaper3k
+PyPDF2
+pdf2image
+pytesseract
