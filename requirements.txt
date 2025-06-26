@@ -1,9 +1,11 @@
-langchain
-openai
-requests
+Pillow
+rembg
 streamlit
+requests
+numpy
+openai
 python-dotenv
-google-search-results
+tweepy
 newspaper3k
 PyPDF2
 pdf2image
