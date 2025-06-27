@@ -206,7 +206,7 @@ elif st.session_state.stage == 'process_and_frame':
             pan_x, 
             pan_y
         )
-        st.image(final_image, caption="Final Framed Photo", use_column_width=True)
+        st.image(final_image, caption="Final Framed Photo", use_container_width=True)
         
         st.markdown("---")
         st.download_button(
