@@ -140,7 +140,7 @@ if st.session_state.stage == 'capture':
                 'target_w_px': target_w_px,
                 'target_h_px': target_h_px
             }
-            st.experimental_rerun()
+            st.rerun()
     with col2:
         st.info("After taking a photo, you will be able to process and frame it in the studio on the next screen.")
 
@@ -222,7 +222,7 @@ elif st.session_state.stage == 'process_and_frame':
         for key in keys_to_delete:
             if key in st.session_state:
                 del st.session_state[key]
-        st.experimental_rerun()
+        st.rerun()
 
 st.markdown("---")
 
@@ -319,7 +319,7 @@ if st.session_state.get('show_privacy', False):
         st.markdown('</div>', unsafe_allow_html=True)
         if st.button("Close", key="close_privacy"):
             st.session_state['show_privacy'] = False
-            st.experimental_rerun()
+            st.rerun()
 
 if st.session_state.get('show_disclaimer', False):
     with st.expander("Disclaimer", expanded=True):
@@ -334,4 +334,4 @@ The creators of this tool do not guarantee that photos generated will be accepte
         st.markdown('</div>', unsafe_allow_html=True)
         if st.button("Close", key="close_disclaimer"):
             st.session_state['show_disclaimer'] = False
-            st.experimental_rerun()
+            st.rerun()
