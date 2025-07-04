@@ -19,3 +19,5 @@ ffmpeg-python
 googletrans==4.0.0-rc1
 PyMuPDF
 weasyprint
+markdown
+python-dateutil
