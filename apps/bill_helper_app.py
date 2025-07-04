@@ -6,7 +6,7 @@ import tempfile
 import fitz  # PyMuPDF for PDF
 from PIL import Image
 from io import BytesIO
-from config.config import OPENAI_API_KEY, AZURE_SPEECH_KEY, AZURE_SPEECH_REGION
+from config.config import get_config
 import openai
 import pytesseract
 import azure.cognitiveservices.speech as speechsdk
@@ -135,6 +135,10 @@ if process:
         tmp_path = tmp.name
     st.session_state['tmp_path'] = tmp_path  # Store for later PDF generation
     try:
+        config = get_config()
+        OPENAI_API_KEY = config.get('OPENAI_API_KEY')
+        AZURE_SPEECH_KEY = config.get('AZURE_SPEECH_KEY')
+        AZURE_SPEECH_REGION = config.get('AZURE_SPEECH_REGION')
         result = process_bill(
             tmp_path,
             file_type=uploaded_file.type,
