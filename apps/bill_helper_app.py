@@ -25,6 +25,29 @@ import base64
 
 st.set_page_config(page_title="Bill Helper", layout="centered")
 
+# --- Simple Password Protection ---
+PASSWORD = os.getenv("BILL_HELPER_PASSWORD", "testpassword")
+
+def check_password():
+    def password_entered():
+        if st.session_state["password"] == PASSWORD:
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # Don't store the password
+        else:
+            st.session_state["password_correct"] = False
+
+    if "password_correct" not in st.session_state:
+        st.text_input("Enter password", type="password", on_change=password_entered, key="password")
+        if "password_correct" in st.session_state and not st.session_state["password_correct"]:
+            st.error("😕 Password incorrect")
+        st.stop()
+    elif not st.session_state["password_correct"]:
+        st.text_input("Enter password", type="password", on_change=password_entered, key="password")
+        st.error("😕 Password incorrect")
+        st.stop()
+
+check_password()
+
 # --- Custom Navbar with Title (left, white) and Auth Button (right), no white background ---
 st.markdown('''
     <style>
