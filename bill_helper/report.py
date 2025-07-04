@@ -8,7 +8,7 @@ from .utils import (
 
 def process_bill(file_path, file_type=None, language="English", generate_pdf_flag=False, generate_audio=False, config_path=None):
     config = get_config(config_path)
-    openai_api_key = config['openai_api_key']
+    OPENAI_API_KEY = config['OPENAI_API_KEY']
     # 1. Extract text
     with open(file_path, 'rb') as f:
         file_bytes = f.read()
@@ -29,11 +29,11 @@ def process_bill(file_path, file_type=None, language="English", generate_pdf_fla
     if not text.strip():
         raise ValueError('No text could be extracted from the uploaded file.')
     # 2. Summarize
-    summary = summarize_bill_text(text, openai_api_key)
+    summary = summarize_bill_text(text, OPENAI_API_KEY)
     if language != "English":
-        summary = translate_summary(summary, language, openai_api_key)
+        summary = translate_summary(summary, language, OPENAI_API_KEY)
     # 3. Due date extraction (three-step)
-    due_date_str = extract_due_date_gpt(summary, openai_api_key)
+    due_date_str = extract_due_date_gpt(summary, OPENAI_API_KEY)
     due_date = None
     if due_date_str and due_date_str.lower() != 'not found':
         try:
