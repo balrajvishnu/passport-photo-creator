@@ -21,3 +21,4 @@ PyMuPDF
 weasyprint
 markdown
 python-dateutil
+httpx>=0.23.0,<1.0
