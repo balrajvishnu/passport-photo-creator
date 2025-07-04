@@ -13,9 +13,6 @@ from gtts import gTTS
 import re
 import urllib.parse
 from datetime import datetime, timedelta
-import sqlite3
-import bcrypt
-import getpass
 import importlib
 import bill_helper.report
 importlib.reload(bill_helper.report)
