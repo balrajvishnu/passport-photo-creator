@@ -6,7 +6,7 @@ import tempfile
 import fitz  # PyMuPDF for PDF
 from PIL import Image
 from io import BytesIO
-from config.config import get_config
+from bill_helper.config import get_config
 import openai
 import pytesseract
 import azure.cognitiveservices.speech as speechsdk
