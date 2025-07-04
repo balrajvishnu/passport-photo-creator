@@ -11,3 +11,9 @@ PyPDF2
 pdf2image
 pytesseract
 onnxruntime
+gTTS
+google-cloud-speech
+google-cloud-translate
+pydub
+ffmpeg-python
+googletrans==4.0.0-rc1
