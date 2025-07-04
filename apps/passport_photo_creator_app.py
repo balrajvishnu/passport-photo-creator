@@ -217,16 +217,20 @@ elif st.session_state.stage == 'process_and_frame':
             use_container_width=True
         )
 
-        st.markdown("""
-        <div style='display: flex; flex-direction: column; align-items: flex-end; margin-top: 32px;'>
-            <a href="https://buymeacoffee.com/balrajvishnu" target="_blank">
-                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145px !important;" >
-            </a>
-            <div style="margin-top: 8px; color: #fff; text-align: center; font-size: 1.15em; font-weight: 500;">
-                If this app helped you, please consider supporting my work!
+        # Buy Me a Coffee button and text
+        st.markdown(
+            """
+            <div style='display: flex; flex-direction: column; align-items: flex-end; margin-top: 12px;'>
+                <a href="https://www.buymeacoffee.com/balrajvishnu" target="_blank">
+                    <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy Me a Coffee" style="height: 44px; width: 44px; border-radius: 50%; background: #FFDD00; padding: 4px;">
+                </a>
+                <a href="https://www.buymeacoffee.com/balrajvishnu" target="_blank" style="margin-top: 4px; color: #fff; background: rgba(0,0,0,0.7); padding: 2px 10px; border-radius: 8px; font-size: 1.08em; font-weight: 500; text-align: right; text-decoration: none;">
+                    Buy me a coffee and support my work
+                </a>
             </div>
-        </div>
-        """, unsafe_allow_html=True)
+            """,
+            unsafe_allow_html=True
+        )
 
     if st.button("<< Start Over"):
         keys_to_delete = ['stage', 'original_photo', 'processed_image']
@@ -346,3 +350,15 @@ The creators of this tool do not guarantee that photos generated will be accepte
         if st.button("Close", key="close_disclaimer"):
             st.session_state['show_disclaimer'] = False
             st.rerun()
+
+st.markdown(
+    """
+    <div style='width: 100%; display: flex; flex-direction: row; justify-content: flex-end; margin-bottom: 8px;'>
+        <a href="https://balrajvishnu.github.io/BalrajVishnu/" target="_blank"
+           style="color: #40DCA5; font-size: 1.08em; font-weight: 500; text-decoration: none; background: rgba(0,0,0,0.7); padding: 4px 14px; border-radius: 8px;">
+            🌐 Try my other free apps
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
