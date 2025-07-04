@@ -9,7 +9,6 @@ from io import BytesIO
 from bill_helper.config import get_config
 import openai
 import pytesseract
-import azure.cognitiveservices.speech as speechsdk
 from gtts import gTTS
 import re
 import urllib.parse
@@ -137,8 +136,6 @@ if process:
     try:
         config = get_config()
         OPENAI_API_KEY = config.get('OPENAI_API_KEY')
-        AZURE_SPEECH_KEY = config.get('AZURE_SPEECH_KEY')
-        AZURE_SPEECH_REGION = config.get('AZURE_SPEECH_REGION')
         result = process_bill(
             tmp_path,
             file_type=uploaded_file.type,
