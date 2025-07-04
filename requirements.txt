@@ -3,7 +3,7 @@ rembg
 streamlit
 requests
 numpy
-openai
+openai>=1.0.0
 python-dotenv
 tweepy
 newspaper3k
