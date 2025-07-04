@@ -206,7 +206,7 @@ elif st.session_state.stage == 'process_and_frame':
             pan_x, 
             pan_y
         )
-        st.image(final_image, caption="Final Framed Photo", use_container_width=True)
+        st.image(final_image, caption="Final Framed Photo")
         
         st.markdown("---")
         st.download_button(
@@ -216,6 +216,17 @@ elif st.session_state.stage == 'process_and_frame':
             mime="image/png",
             use_container_width=True
         )
+
+        st.markdown("""
+        <div style='display: flex; flex-direction: column; align-items: flex-end; margin-top: 32px;'>
+            <a href="https://buymeacoffee.com/balrajvishnu" target="_blank">
+                <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 145px !important;" >
+            </a>
+            <div style="margin-top: 8px; color: #fff; text-align: center; font-size: 1.15em; font-weight: 500;">
+                If this app helped you, please consider supporting my work!
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     if st.button("<< Start Over"):
         keys_to_delete = ['stage', 'original_photo', 'processed_image']
